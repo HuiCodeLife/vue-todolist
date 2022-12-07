@@ -1,10 +1,18 @@
 <template>
   <ul class="todo-main">
-    <TodoItem v-for="todo in todoList" :key="todo.id" :todo="todo" />
+    <transition-group
+      appear
+      name="animate__animated animate__bounce"
+      enter-active-class="animate__bounceInDown"
+			leave-active-class="animate__backOutUp"
+    >
+      <TodoItem v-for="todo in todoList" :key="todo.id" :todo="todo" />
+    </transition-group>
   </ul>
 </template>
 
 <script>
+import 'animate.css';
 import TodoItem from "./TodoItem.vue";
 export default {
   name: "TodoList",
